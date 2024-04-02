@@ -1,4 +1,6 @@
 import "./App.css";
+import instructions from "./instructions";
+import ingredients from "./ingredients";
 
 function App() {
   return (
@@ -8,6 +10,7 @@ function App() {
       <PreparationTime />
       <Ingredients />
       <Instructions />
+      <Nutrition />
     </div>
   );
 }
@@ -57,13 +60,9 @@ function Ingredients() {
     <section className="ingredients">
       <h3>Ingredients</h3>
       <ul>
-        <li>2-3 large eggs</li>
-        <li>Salt, to taste</li>
-        <li> Pepper, to taste</li>
-        <li>1 tablespoon of butter or oil</li>
-        <li>
-          Optional fillings: cheese, diced vegetables, cooked meats, herbs
-        </li>
+        {ingredients.map(({ ingredient }) => {
+          return <li key={ingredient}>{ingredient}</li>;
+        })}
       </ul>
       <hr />
     </section>
@@ -75,35 +74,17 @@ function Instructions() {
     <section className="instructions-section">
       <h3>Instructions</h3>
       <ul className="instructions">
-        <Instruction
-          description="Beat the eggs"
-          explanation="In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. 
-          You can add a tablespoon of water or milk for a fluffier texture."
-        />
-        <Instruction
-          description="Heat the pan"
-          explanation="Place a non-stick frying pan over medium heat and add butter or oil."
-        />
-        <Instruction
-          description="Cook the omelette"
-          explanation="Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure 
-    the eggs evenly coat the surface."
-        />
-        <Instruction
-          description="Add fillings (optional)"
-          explanation="When the eggs begin to set at the edges but are still slightly runny in the 
-        middle, sprinkle your chosen fillings over one half of the omelette."
-        />
-        <Instruction
-          description="Fold and serve"
-          explanation="As the omelette continues to cook, carefully lift one edge and fold it over the 
-    fillings. Let it cook for another minute, then slide it onto a plate."
-        />
-        <Instruction
-          description="Enjoy"
-          explanation="Serve hot, with additional salt and pepper if needed."
-        />
+        {instructions.map(({ description, explanation }) => {
+          return (
+            <Instruction
+              description={description}
+              explanation={explanation}
+              key={description}
+            />
+          );
+        })}
       </ul>
+      <hr />
     </section>
   );
 }
@@ -113,6 +94,36 @@ function Instruction({ description, explanation }) {
     <li className="instruction">
       <span className="description">{description}</span>: {explanation}
     </li>
+  );
+}
+
+function Nutrition() {
+  return (
+    <section className="nutrition">
+      <h3>Nutrition</h3>
+      <p>
+        The table below shows nutritional values per serving without the
+        additional fillings.
+      </p>
+      <ul>
+        <Nutrient text="Calories" value="277kcal" />
+        <Nutrient text="Carbs" value="0g" />
+        <Nutrient text="Protein" value="20g" />
+        <Nutrient text="Fat" value="22g" />
+      </ul>
+    </section>
+  );
+}
+
+function Nutrient({ text, value }) {
+  return (
+    <>
+      <li>
+        <span className="text">{text}</span>
+        <span className="value">{value}</span>
+      </li>
+      <hr />
+    </>
   );
 }
 

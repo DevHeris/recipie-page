@@ -149,7 +149,8 @@ body {
 }
 
 .ingredients h3,
-.instructions-section h3 {
+.instructions-section h3,
+.nutrition h3 {
   font-family: youngserif;
   color: var(--nutmeg);
   font-weight: 300;
@@ -187,6 +188,7 @@ body {
   color: var(--wenge-brown);
   padding: 0.3em;
   padding-left: 1em;
+  padding-bottom: 1.2em;
 }
 
 .instruction::marker {
@@ -197,5 +199,36 @@ body {
 .description {
   color: var(--dark-charcoal);
   font-family: outfit-medium;
-  font-size: clamp(0.5em, 3vw, 1em);
+  font-size: 1em;
+}
+
+.nutrition p {
+  margin: 1em 0;
+  font-family: outfit-regular;
+  color: var(--wenge-brown);
+}
+
+.nutrition ul {
+  list-style-type: none;
+}
+
+.nutrition li {
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.value {
+  color: var(--nutmeg);
+  font-weight: bold;
+  font-family: outfit-bold;
+}
+
+.text {
+  font-family: outfit-regular;
+  color: var(--dark-charcoal);
+}
+
+.nutrition hr:last-child {
+  display: none;
 }
