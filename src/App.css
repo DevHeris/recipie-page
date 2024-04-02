@@ -1,38 +1,201 @@
-.App {
-  text-align: center;
+/* Custom fonts */
+@font-face {
+  font-family: "outfit-black";
+  src: url(../public/assets/fonts/outfit/static/Outfit-Black.ttf);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: "outfit-bold";
+  src: url(../public/assets/fonts/outfit/static/Outfit-Bold.ttf);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: "outfit-extrabold";
+  src: url(../public/assets/fonts/outfit/static//Outfit-ExtraBold.ttf);
+}
+@font-face {
+  font-family: "outfit-extralight";
+  src: url(../public/assets/fonts/outfit/static/Outfit-ExtraLight.ttf);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@font-face {
+  font-family: "outfit-light";
+  src: url(../public/assets/fonts/outfit/static/Outfit-Light.ttf);
 }
 
-.App-link {
-  color: #61dafb;
+@font-face {
+  font-family: "outfit-medium";
+  src: url(../public/assets/fonts/outfit/static/Outfit-Medium.ttf);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+  font-family: "outfit-regular";
+  src: url(../public/assets/fonts/outfit/static/Outfit-Regular.ttf);
+}
+
+@font-face {
+  font-family: "outfit-thin";
+  src: url(../public/assets/fonts/outfit/static/Outfit-Thin.ttf);
+}
+
+@font-face {
+  font-family: "youngserif";
+  src: url(../public/assets/fonts/young-serif/YoungSerif-Regular.ttf);
+}
+
+/* Variables */
+:root {
+  /* colors */
+  --nutmeg: hsl(14, 45%, 36%);
+  --dark-raspberry: hsl(332, 51%, 32%);
+
+  --white: hsl(0, 0%, 100%);
+  --rose-white: hsl(330, 100%, 98%);
+  --eggshell: hsl(30, 54%, 90%);
+  --light-grey: hsl(30, 18%, 87%);
+  --wenge-brown: hsl(30, 10%, 34%);
+  --dark-charcoal: hsl(24, 5%, 18%);
+}
+
+/* Reset */
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  background-color: var(--eggshell);
+}
+
+.container {
+  --max-width: 43em;
+  --padding: 1rem;
+
+  width: min(var(--max-width), 100% - var(--padding) * 2);
+  margin-inline: auto;
+
+  background-color: var(--white);
+  margin: 5em auto;
+  padding: 1.5em;
+  border-radius: 1em;
+}
+
+.header img {
+  border-radius: 1em;
+}
+
+.intro h1 {
+  font-family: youngserif;
+  color: var(--dark-charcoal);
+  padding: 0.6em 0;
+  font-weight: 500;
+}
+
+.intro p {
+  color: var(--wenge-brown);
+  font-family: outfit-regular;
+}
+
+.time {
+  margin: 1.5em 0;
+  padding: 1.5em 2em;
+  background-color: var(--rose-white);
+  border-radius: 1em;
+  font-family: outfit-regular;
+}
+
+.time h4 {
+  color: var(--dark-raspberry);
+}
+
+.time ul {
+  margin: 1em 0 0 0;
+  padding-left: 1.3em;
+  list-style-type: disc;
+  font-size: clamp(0.3em, 6vw, 1em);
+}
+
+.time li {
+  font-family: outfit-light;
+  padding: 0.3em;
+  padding-left: 0.6em;
+}
+
+.time li::marker {
+  color: var(--dark-raspberry);
+}
+
+.time li:first-child {
+  padding-top: 0;
+}
+
+.time li:last-child {
+  padding-bottom: 0;
+}
+
+.time span {
+  color: var(--dark-charcoal);
+  font-size: 1em;
+  font-family: outfit-medium;
+}
+
+.ingredients h3,
+.instructions-section h3 {
+  font-family: youngserif;
+  color: var(--nutmeg);
+  font-weight: 300;
+}
+
+.ingredients ul {
+  padding: 1em;
+  padding-bottom: 2em;
+  padding-left: 1.5em;
+  list-style-type: circle;
+  font-family: outfit-regular;
+  color: var(--wenge-brown);
+}
+
+.ingredients li {
+  padding: 0.3em;
+  padding-left: 1em;
+}
+
+.ingredients li::marker {
+  color: var(--nutmeg);
+}
+
+.instructions-section {
+  margin: 1.2em 0;
+}
+
+.instructions {
+  list-style-type: decimal;
+  padding: 1em 1em 1em 1.5em;
+}
+
+.instruction {
+  font-family: outfit-regular;
+  color: var(--wenge-brown);
+  padding: 0.3em;
+  padding-left: 1em;
+}
+
+.instruction::marker {
+  color: var(--nutmeg);
+  font-weight: bold;
+}
+
+.description {
+  color: var(--dark-charcoal);
+  font-family: outfit-medium;
+  font-size: clamp(0.5em, 3vw, 1em);
 }
